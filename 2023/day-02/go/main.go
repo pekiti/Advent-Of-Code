@@ -8,10 +8,6 @@ import (
 	"strings"
 )
 
-// This setup is done not because I like global variables, but in order to avoid
-// any potential system calls during benchmarks (and to also make it easier to
-// just call partXXX function). From my benchmarks it also turns out that s.Text()
-// allocates, even if reusing the variable for the line.
 var inputLines = readlines()
 
 func readlines() []string {
@@ -132,16 +128,7 @@ func part2() int {
 }
 
 func main() {
-	// Run only 1 profile at a time!
-	// defer profile.Start(profile.CPUProfile, profile.ProfilePath(".")).Stop()
-	// defer profile.Start(profile.MemProfile, profile.ProfilePath("."), profile.MemProfileRate(1)).Stop()
-
-	// No return value improves speed during contest, but make these functions
-	// return something for benchmarks once problem is solved.
-	//
-	// Part 2 is not written above and commented below so that template compiles
-	// while solving part 1.
-
+	fmt.Println("Advent of Code 2023 - Day 2")
 	fmt.Println("Solution - Part 1: ", part1())
 	fmt.Println("Solution - Part 2: ", part2())
 }
